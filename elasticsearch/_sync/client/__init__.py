@@ -722,7 +722,7 @@ class Elasticsearch(BaseClient):
 
         :param scroll_id: Scroll IDs to clear. To clear all scroll IDs, use `_all`.
         """
-        __path = "/_search/scroll"
+        __path = "/siren/_search/scroll"
         __query: t.Dict[str, t.Any] = {}
         __body: t.Dict[str, t.Any] = {}
         if error_trace is not None:
@@ -2539,9 +2539,9 @@ class Elasticsearch(BaseClient):
         if searches is None:
             raise ValueError("Empty value passed for parameter 'searches'")
         if index not in SKIP_IN_PATH:
-            __path = f"/{_quote(index)}/_msearch"
+            __path = f"/siren/{_quote(index)}/_msearch"
         else:
-            __path = "/_msearch"
+            __path = "/siren/_msearch"
         __query: t.Dict[str, t.Any] = {}
         if allow_no_indices is not None:
             __query["allow_no_indices"] = allow_no_indices
@@ -2627,9 +2627,9 @@ class Elasticsearch(BaseClient):
         if search_templates is None:
             raise ValueError("Empty value passed for parameter 'search_templates'")
         if index not in SKIP_IN_PATH:
-            __path = f"/{_quote(index)}/_msearch/template"
+            __path = f"/siren/{_quote(index)}/_msearch/template"
         else:
-            __path = "/_msearch/template"
+            __path = "/siren/_msearch/template"
         __query: t.Dict[str, t.Any] = {}
         if ccs_minimize_roundtrips is not None:
             __query["ccs_minimize_roundtrips"] = ccs_minimize_roundtrips
@@ -3258,7 +3258,7 @@ class Elasticsearch(BaseClient):
         """
         if scroll_id is None:
             raise ValueError("Empty value passed for parameter 'scroll_id'")
-        __path = "/_search/scroll"
+        __path = "/siren/_search/scroll"
         __body: t.Dict[str, t.Any] = {}
         __query: t.Dict[str, t.Any] = {}
         if scroll_id is not None:
@@ -3575,9 +3575,9 @@ class Elasticsearch(BaseClient):
         :param version: If true, returns document version as part of a hit.
         """
         if index not in SKIP_IN_PATH:
-            __path = f"/{_quote(index)}/_search"
+            __path = f"/siren/{_quote(index)}/_search"
         else:
-            __path = "/_search"
+            __path = "/siren/_search"
         __body: t.Dict[str, t.Any] = {}
         __query: t.Dict[str, t.Any] = {}
         # The 'sort' parameter with a colon can't be encoded to the body.
@@ -4049,9 +4049,9 @@ class Elasticsearch(BaseClient):
             names with their respective types.
         """
         if index not in SKIP_IN_PATH:
-            __path = f"/{_quote(index)}/_search/template"
+            __path = f"/siren/{_quote(index)}/_search/template"
         else:
-            __path = "/_search/template"
+            __path = "/siren/_search/template"
         __query: t.Dict[str, t.Any] = {}
         __body: t.Dict[str, t.Any] = {}
         if allow_no_indices is not None:
